@@ -3,7 +3,6 @@ import socket
 import threading
 import os,sys
 from secrets import choice
-import tkinter as tk
 import psutil
 
 os.system("clear")
