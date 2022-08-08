@@ -18,7 +18,7 @@ print('''
                                 
 ''')
 print("Tools By Kazuya")
-hedef_ip=raw_input("Target IP: => ")
+hedef_ip=input("Target IP: => ")
 hedef_port=input("Target Port: => ")
 
 bytes=random._urandom(3000)
