@@ -4,6 +4,7 @@ import threading
 import time
 import os,sys
 from secrets import choice
+from threading import Thread
 import psutil
 os.system("clear")
 print("З А Г Р У З К А....")
