@@ -22,9 +22,6 @@ print("""
 """)
 print("Ddos@Attaka")
 
-time.sleep(2.5)
-os.system("clear")
-
 import threading
 from random import choice
 import requests
