@@ -26,6 +26,15 @@ import threading
 from random import choice
 import requests
 import socket
+
+print()
+#ip
+url = input(" Url: => ")
+url_chek =requests.get(url)
+ip = socket.gethostbyname(url.replace("https://","").replace("http://",""))
+print(ip)
+
+
 try:
     from scapy.all import *
     from scapy.layers.inet import TCP, IP
