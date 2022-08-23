@@ -20,15 +20,15 @@ white = "\033[1;37m"
 default = "\033[0m"
 
 print("""\033[93m
-     __      ANONYMOUS       _____
-    / /  __ _ _   _  ___ _  |___  |
-   / /  / _` | | | |/ _ \ '__| / /
-  / /__| (_| | |_| |  __/ |   / /
-  \____/\__,_|\__, |\___|_|  /_/
-              |___/
-  ADDED NEW METHOD AND BYPASS 
+        __      ANONYMOUS       _____
+       / /  __ _ _   _  ___ _  |___  |
+      / /  / _` | | | |/ _ \ '__| / /
+     / /__| (_| | |_| |  __/ |   / /
+     \____/\__,_|\__, |\___|_|  /_/
+                 |___/
+          ADDED NEW METHOD AND 
 """)
-print("Ddos@Attaka")
+print()
 
 import threading
 from random import choice
