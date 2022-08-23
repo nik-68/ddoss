@@ -19,7 +19,7 @@ yellow = "\033[1;33m"
 white = "\033[1;37m"
 default = "\033[0m"
 
-print("\033[1;33m"
+print("\033[1;33m
      __      ANONYMOUS       _____
     / /  __ _ _   _  ___ _  |___  |
    / /  / _` | | | |/ _ \ '__| / /
@@ -27,7 +27,7 @@ print("\033[1;33m"
   \____/\__,_|\__, |\___|_|  /_/
               |___/
   ADDED NEW METHOD AND BYPASS 
-""")
+")
 print("Ddos@Attaka")
 
 import threading
